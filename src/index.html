@@ -6,9 +6,75 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Hola mundo Karina</h1>
-    <header></header>
+    <header>
+      <div class="header">
+        <a class="logoPage"> <img src="img/logoPage.png" alt=""></a>
+        <nav class="navegation">
+          <ul class="menu">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Banca por Internet</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <main>
+      <section id="screen1">
+      <div class="container">
+        <div class="title">
+          <h1>BANCA POR INTERNET</h1>
+        </div>
+        <!-- Tarjeta -->
+        <section class="card" id="card">
+          <div class="up">
+            <div class="logoBrand" id="logoBrand">
+              <!--<img src="img/logo/visa.png" alt="">-->
+            </div>
+            <img src="img/chip-tarjeta.png" class="chip" alt="">
+            <div class="dates">
+              <div class="group" id="number">
+                <p class="label">Número Tarjeta</p>
+                <p class="number">#### #### #### ####</p>
+              </div>
+              <div class="flexbox">
+                <div class="group" id="name">
+                  <p class="label">Nombre Tarjeta</p>
+                  <p class="name">Ingrese Nombre</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Formulario -->
+        <form action="" id="formCard" class="formCard">
+          <div class="group">
+            <label for="inputNumber">Número Tarjeta</label>
+            <input type="text" id="inputNumber" minlength="16" maxlength="16" autocomplete="off" placeholder="Ingresa tu número de tarjeta">
+          </div>
+          <div class="group">
+            <label for="inputName">Nombre</label>
+            <input type="text" id="inputName" maxlength="19" autocomplete="off" placeholder="Ingresa tu nombre">
+          </div>
+          <!-- <input class="btnSend" type="button" value="Enviar">-->
+          <button class="btnSend" id="btnSend">Enviar</button>
+        </form>
+      </div>
+    </section>
+      <!-- Respuesta -->
+      <section id="screen2">
+        <div class="container2">
+          <div class="formCard2">
+            <div class="titlePage">
+            <h1 id="valid"></h1>
+          </div>
+          <div class="flexbox">
+            <input class="btnReturn" id="btnReturn" type="button" value="Volver">
+            <input class="btnReturn2" type="button" value="Ingresa a tus operaciones">
+          </div>
+        </div>
+      </div>
+    </section>
     </main>
     <footer></footer>
     <script src="index.js" type="module"></script>
