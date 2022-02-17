@@ -31,6 +31,18 @@ const validator = {
     newnumber=(""+numbercardvalid).slice(0,-n).replace(/./g,mascara)+(""+numbercardvalid).slice(-n);
     return newnumber;
   },
+
+  getIssuer:function(numbercardvalid){
+    if(numbercardvalid[0]==4){
+      let visa="visa";
+      return visa;
+
+    } else if(numbercardvalid[0]==5&&numbercardvalid[1]==1||numbercardvalid[0]==5&&numbercardvalid[1]==5){
+      let mastercard="mastercard";
+      return mastercard;
+    }
+  },
+
 };
 
 export default validator;
