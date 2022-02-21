@@ -25,10 +25,8 @@ const validator = {
   },
 
   maskify:function(numbercardvalid){
-    let n=4,
-    mask="#",
-    newnumber="";
-    newnumber=(""+numbercardvalid).slice(0,-n).replace(/./g,mask)+(""+numbercardvalid).slice(-n);
+    let newnumber="";
+    newnumber=numbercardvalid.slice(0,-4).replace(/./g,"#")+numbercardvalid.slice(-4);
     return newnumber;
   },
 
