@@ -3,7 +3,8 @@ import validator from './validator.js';
 const formCard=document.querySelector("#formCard"),
 numberCard=document.querySelector(".number"),
 name=document.querySelector(".name"),
-logoBrand=document.querySelector("#logoBrand");
+logoBrand=document.querySelector("#logoBrand"),
+mistake=document.querySelector("#mistake");
 
 //input numberCard
 formCard.inputNumber.addEventListener("keyup", (e)=>{
@@ -14,9 +15,9 @@ formCard.inputNumber.addEventListener("keyup", (e)=>{
   .replace(/\s/g,"")
   //Eliminamos las letras
   .replace(/\D/g,"")
-  numberCard.textContent=numbermask;
+  numberCard.innerHTML=numbermask;
   if(cardNumber==""){
-    numberCard.textContent="#### #### #### ####";
+    numberCard.innerHTML="#### #### #### ####";
     logoBrand.innerHTML=" ";
   }
   let issuer = validator.getIssuer(cardNumber);
@@ -35,22 +36,25 @@ formCard.inputNumber.addEventListener("keyup", (e)=>{
 //input cardname
 formCard.inputName.addEventListener("keyup", (e)=>{
   let cardName=e.target.value;
-  name.textContent=cardName;
+  name.innerHTML=cardName;
   formCard.inputName.value=cardName
   //Eliminamos los numeros
   .replace(/\d/g,"")
   if(cardName==""){
-    name.textContent="Ingrese Nombre";
+    name.innerHTML="Ingrese Nombre";
   }
 });
 
 const btnSend=document.querySelector("#btnSend");
-btnSend.addEventListener("click", ()=>{
+btnSend.addEventListener("click", (e)=>{
+  e.preventDefault();
   let inputNumber=document.querySelector("#inputNumber").value;
   let inputName=document.querySelector("#inputName").value;
   let valid=document.getElementById("valid");
   if (inputNumber=="" && inputName==""||inputNumber==""||inputName==""){
-    alert("Ingrese sus datos");
+    mistake.innerHTML="Ingrese sus datos";
+    document.querySelector(".mistake").style.display="block";
+    //alert("Ingrese sus datos");
   } else if (validator.isValid(inputNumber)==true){
     valid.innerHTML = "Tu tarjeta es válida";
     document.getElementById("screen2").style.display="block";
@@ -64,8 +68,9 @@ btnSend.addEventListener("click", ()=>{
 
 const btnReturn=document.getElementById("btnReturn");
 btnReturn.addEventListener("click", ()=>{
+  document.getElementById('formCard').reset();
+  document.querySelector(".mistake").style.display="none";
   document.getElementById("screen2").style.display="none";
   document.getElementById("screen1").style.display="block";
 });
-
 
